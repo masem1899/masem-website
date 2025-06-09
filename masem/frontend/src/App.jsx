@@ -5,6 +5,7 @@ import Newsletter from "./components/landing/Newsletter"
 import AboutMe from "./components/landing/AboutMe"
 import Footer from "./components/Footer"
 import ToggleDarkMode from "./components/ToggleDarkMode"
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Footer />
       </div>
       <ToggleDarkMode />
+      <Analytics />
     </>
   )
 }
