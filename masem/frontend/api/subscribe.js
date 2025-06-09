@@ -24,7 +24,7 @@ export default async (req, res) => {
             html: `<p>Welcome to the masem newsletter!</p>`
         });
 
-        console.log("✅ Email sent:", result);
+        console.log("✅ Email sent:", data);
         return res.status(200).json({ success: true }); // ← MUST return a response
     } catch (err) {
         console.error(err);
