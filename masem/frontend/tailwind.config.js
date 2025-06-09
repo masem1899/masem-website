@@ -6,8 +6,8 @@ module.exports = {
   	extend: {
   		colors: {
   			masem: '#76bc68', //'#10B981',
-  			masemDark: '#0F766E',
-  			masemLight: '#6EE7B7',
+  			masemDark: '#87a77e',
+  			masemLight: '#bcdeb2',
   			accent: {
   				DEFAULT: 'hsl(var(--accent))',
   				foreground: 'hsl(var(--accent-foreground))'

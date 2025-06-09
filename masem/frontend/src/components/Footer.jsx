@@ -5,7 +5,7 @@
 
 export default function Footer() {
     return (
-        <footer className="text-gray-500 bg-gray-50">
+        <footer className="text-muted-foreground bg-card">
         <div className="py-10 text-center text-sm flex flex-col items-center space-y-2">
             <div>
             <a href="#impressum" className="mx-2 hover:underline">Legal Notice</a>
