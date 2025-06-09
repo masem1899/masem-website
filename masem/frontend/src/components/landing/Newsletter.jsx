@@ -41,7 +41,7 @@ export default function Newsletter() {
                     className="px-4 py-2 border rounded-md w-64 bg-background text-foreground
                                 placeholder:text-muted-foreground border-border"
                 />
-                <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-md">Subscribe</Button>
+                <Button type="submit" className="">Subscribe</Button>
             </form>
             { status === 'success' && <p className="mt-4 text-green-600">You're subscribed. Thank you!</p> }
             { status === 'error' && <p className="mt-4 text-red-600">Something went wrong</p> }
