@@ -1,6 +1,6 @@
 
 import heroIconUrl from "@/assets/hero.svg";
-import Button from "./own/Button";
+import Button from "@/components/own/Button";
 
 export default function Hero() {
     const scrollTo = (id) => {
@@ -30,17 +30,6 @@ export default function Hero() {
                         </Button>
                     </div>
                 </div>
-            </section>
-
-            {/* Projects */}
-            <section id="projects" className="py-20 text-center bg-white">
-                <h2 className="text-3xl font-bold mb-4">Projects</h2>
-                <p className="text-gray-600">Coming soon... Stay tuned!</p>
-            </section>
-
-            {/* Newsletter */}
-            <section id="newsletter" className="py-20 text-center bg-gray-100">
-                <h2 className="text-3xl font-bold mb-4">Newsletter</h2>
             </section>
         </>
     )
