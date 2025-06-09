@@ -3,6 +3,7 @@ import Hero from "@/components/landing/Hero"
 import Projects from "@/components/landing/Projects"
 import Newsletter from "./components/landing/Newsletter"
 import AboutMe from "./components/landing/AboutMe"
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
 
       {/* About me */}
       <AboutMe />
-    </div>
 
-    
+      {/* Footer */}
+      <Footer />
+    </div>
   )
 }
 

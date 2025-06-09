@@ -5,7 +5,7 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			masem: '#10B981',
+  			masem: '#76bc68', //'#10B981',
   			masemDark: '#0F766E',
   			masemLight: '#6EE7B7',
   			accent: {
