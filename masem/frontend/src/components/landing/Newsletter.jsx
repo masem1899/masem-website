@@ -1,7 +1,6 @@
 import { Input } from "@/components/ui/input";
 import Button from "../own/Button";
 import { useState } from "react";
-import { track } from "@vercel/analytics";
 
 
 export default function Newsletter() {
@@ -12,7 +11,6 @@ export default function Newsletter() {
         e.preventDefault();
         setStatus('loading');
 
-        track('newsletter_signup', email);
 
         const res = await fetch('/api/subscribe', {
             method: 'POST',

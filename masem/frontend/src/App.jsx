@@ -6,7 +6,7 @@ import AboutMe from "./components/landing/AboutMe"
 import Footer from "./components/Footer"
 import ToggleDarkMode from "./components/ToggleDarkMode"
 import { Analytics } from '@vercel/analytics/react';
-
+import { SpeedInsights } from '@vercel/speed-insights';
 
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
       </div>
       <ToggleDarkMode />
       <Analytics />
+      <SpeedInsights />
     </>
   )
 }
