@@ -23,7 +23,11 @@ export default function Newsletter() {
             setStatus('success');
             setEmail('');
         } else {
-            setStatus('error');
+            if(res.status === 405) {
+                setStatus('exists');
+            } else {
+                setStatus('error');
+            }
         }
     }
 
@@ -45,7 +49,8 @@ export default function Newsletter() {
                 <Button type="submit" className="">Subscribe</Button>
             </form>
             { status === 'success' && <p className="mt-4 text-green-600">You're subscribed. Thank you!</p> }
-            { status === 'error' && <p className="mt-4 text-red-600">Something went wrong</p> }
+            { status === 'error' && <p className="mt-4 text-red-600">Something went wrong ...</p> }
+            { status === 'exists' && <p className="mt-4 text-orange-500">You are already registered.</p> }
         </section>
     );
 }
