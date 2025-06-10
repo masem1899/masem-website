@@ -1,16 +1,14 @@
-import fs from 'fs';
 import { getApps, initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore} from 'firebase-admin/firestore';
 import { Resend } from 'resend';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
 
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const mdFilePath = resolve(__dirname, 'email-templates/welcome.md');
 
+const path = require('path');
+const fs = require('fs');
+
+const mdFilePath = path.resolve(__dirname, '../email-templates/welcome.md');
 
 
 
