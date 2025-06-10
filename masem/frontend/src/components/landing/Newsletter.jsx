@@ -7,7 +7,7 @@ export default function Newsletter() {
     const [ email, setEmail ] = useState('');
     const [ status, setStatus ] = useState('');
     let API_URL = import.meta.env.VITE_API_URL;
-    if (!API_URL) API_URL = 'https://masem.at'
+    if (!API_URL) API_URL = ''
     
     async function handleSubmit(e) {
         e.preventDefault();
