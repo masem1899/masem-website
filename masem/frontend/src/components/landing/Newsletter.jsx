@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import Button from "../own/Button";
 import { useState } from "react";
-import { track } from "@vercel/analytics/react";
+import { track } from "@vercel/analytics";
 
 
 export default function Newsletter() {

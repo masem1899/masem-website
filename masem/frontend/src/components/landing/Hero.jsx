@@ -1,6 +1,8 @@
 import masemLogUrl from "@/assets/masem-logo.png";
-import heroIconUrl from "@/assets/hero.svg";
 import Button from "@/components/own/Button";
+import { track } from "@vercel/analytics/*";
+
+
 
 export default function Hero() {
     const scrollTo = (id) => {
