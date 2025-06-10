@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function Newsletter() {
     const [ email, setEmail ] = useState('');
     const [ status, setStatus ] = useState('');
-    const API_URL = import.meta.env.VITE_API_URL;
+    let API_URL = import.meta.env.VITE_API_URL;
+    if (!API_URL) API_URL = 'https://masem.at'
     
     async function handleSubmit(e) {
         e.preventDefault();
