@@ -1,7 +1,7 @@
 import { getApps, initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore} from 'firebase-admin/firestore';
 import { Resend } from 'resend';
-
+import { marked } from 'marked';
 
 
 
@@ -50,6 +50,9 @@ export default async function handler(req, res) {
         const markdown = fs.readFileSync(mdFilePath, 'utf-8');
         const html = marked.parse(markdown);
 
+
+         const resend = new Resend(process.env.RESEND_API_KEY);
+    
         // Add to audience
         await resend.contacts.create({
             email,
