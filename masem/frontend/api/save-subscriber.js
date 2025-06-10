@@ -10,16 +10,10 @@ const fs = require('fs');
 
 const mdFilePath = path.resolve(__dirname, '../email-templates/welcome.md');
 
-
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-
-
-if(!getApps().length) {
-    initializeApp({
-        credential: cert(serviceAccount),
-    })
+const raw = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+raw.privateKey = raw.private_key.replace(/\\n/g, '\n');
+if (!getApps().length) {
+    initializeApp({ credential: cert(raw) });
 }
 
 const db = getFirestore();
