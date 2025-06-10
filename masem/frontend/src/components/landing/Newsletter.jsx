@@ -12,7 +12,7 @@ export default function Newsletter() {
         setStatus('loading');
 
 
-        const res = await fetch('/api/subscribe', {
+        const res = await fetch('/api/save-subscriber', {
             method: 'POST',
             headers: { 'Content-Type':'application/json '},
             body: JSON.stringify({ email })
