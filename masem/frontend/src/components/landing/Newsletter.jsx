@@ -6,13 +6,14 @@ import { useState } from "react";
 export default function Newsletter() {
     const [ email, setEmail ] = useState('');
     const [ status, setStatus ] = useState('');
-
+    const API_URL = import.meta.env.VITE_API_URL;
+    
     async function handleSubmit(e) {
         e.preventDefault();
         setStatus('loading');
 
 
-        const res = await fetch('/api/save-subscriber', {
+        const res = await fetch(`${API_URL}/api/save-subscriber`, {
             method: 'POST',
             headers: { 'Content-Type':'application/json '},
             body: JSON.stringify({ email })

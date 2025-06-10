@@ -1,9 +1,15 @@
 import fs from 'fs';
-import path from 'path';
 import { getApps, initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore} from 'firebase-admin/firestore';
 import { Resend } from 'resend';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const mdFilePath = resolve(__dirname, 'email-templates/welcome.md');
 
 
 
@@ -49,7 +55,8 @@ export default async function handler(req, res) {
         });
 
         // Load html from file
-        const html = fs.readFileSync(path.resolve('./email-templates/welcome.html'), 'utf-8');
+        const markdown = fs.readFileSync(mdFilePath, 'utf-8');
+        const html = marked.parse(markdown);
 
         // Add to audience
         await resend.contacts.create({
