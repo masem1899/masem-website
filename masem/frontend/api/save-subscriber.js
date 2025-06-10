@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(200).json({ error:'Method not allowed.' });
 
     const { email } = req.body;
-
+    
     if (!email ||
         !email.toLowerCase()
         .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
