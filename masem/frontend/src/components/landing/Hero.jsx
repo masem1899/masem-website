@@ -4,6 +4,7 @@ import Button from "@/components/own/Button";
 
 export default function Hero() {
     const scrollTo = (id) => {
+        track('scrollTo', id);
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth'});
     };
 
