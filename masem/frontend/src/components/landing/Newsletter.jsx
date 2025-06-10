@@ -20,10 +20,11 @@ export default function Newsletter() {
         });
 
         if (res.ok) {
+
             setStatus('success');
             setEmail('');
         } else {
-            if(res.status === 405) {
+            if(res.status === 403) {
                 setStatus('exists');
             } else {
                 setStatus('error');

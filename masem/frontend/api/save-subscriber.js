@@ -27,7 +27,7 @@ if(!getApps().length) {
 const db = getFirestore();
 
 export default async function handler(req, res) {
-    if (req.method !== 'POST') return res.status(405).json({ error:'Method not allowed.' });
+    if (req.method !== 'POST') return res.status(200).json({ error:'Method not allowed.' });
 
     const { email } = req.body;
 
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
             .get();
 
         if (!snapshot.empty) {
-            return res.status(200).json({ message: 'Already subscribed.'} );
+            return res.status(403).json({ message: 'Already subscribed.'} );
         }
 
         // Store subscriber

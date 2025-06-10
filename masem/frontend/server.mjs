@@ -45,7 +45,7 @@ app.post('/api/save-subscriber', async (req, res) => {
         .limit(1)
         .get();
     console.log('1', existing.empty);
-    if(!existing.empty) return res.status(409).json({ message: 'already subscribed.'});
+    if(!existing.empty) return res.status(403).json({ message: 'already subscribed.'});
     console.log('2');
     
     await db.collection('subscribers').add({ email, createdAt: new Date(), status:'subscribed'});
