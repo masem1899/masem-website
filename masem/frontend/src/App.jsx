@@ -22,7 +22,7 @@ function App() {
 
         {/* About me */}
         <AboutMe />
-
+ 
         {/* Footer */}
         <Footer />
       </div>
