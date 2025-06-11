@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import ToggleDarkMode from "./components/ToggleDarkMode"
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import SocialLinks from "./components/SocialLinks"
 
 
 
@@ -15,6 +16,8 @@ function App() {
   return (
     <>
       <div className="font-sans bg-background text-foreground">
+        {/* social links */}
+        <div className="flex justify-end bg-muted text-foreground pt-1 pr-2"><span>&nbsp;</span><SocialLinks class="flex gap-3" /></div>
         {/* Hero */}
         <Hero />
         
