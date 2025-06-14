@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Landing /> } />
         <Route path="/admin" element={ <Admin /> } />
+        <Route path="*" element={<Landing />} />
       </Routes>
     </Router>
   )
