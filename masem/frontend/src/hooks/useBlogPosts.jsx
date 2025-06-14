@@ -14,7 +14,7 @@ export const useBlogPosts = () => {
         const loadBlogPosts = async() => {
             try {
                 setLoading(true);
-                const res = await fetch(`${API_URL}/api/get-posts`);
+                const res = await fetch(`${API_URL}/api/get-blog-posts`);
                 if(!res.ok) throw new Error('Error fetching blog posts.');
                 const data = await res.json();
                 setPosts(data || []);
