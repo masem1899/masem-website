@@ -9,7 +9,7 @@ export const useProjects = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL || '';
 
     useEffect(() => {
         const loadProjects = async() => {

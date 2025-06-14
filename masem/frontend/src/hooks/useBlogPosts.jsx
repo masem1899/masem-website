@@ -8,7 +8,7 @@ export const useBlogPosts = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL || '';
 
     useEffect(() => {
         const loadBlogPosts = async() => {
