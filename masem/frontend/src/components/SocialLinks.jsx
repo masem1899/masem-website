@@ -19,7 +19,7 @@ export default function SocialLinks({ ...props }) {
                 </a>
                 {/* bluesky */}
                 | <a href="https://bsky.app/profile/masemcontact.bsky.social" title="Bluesky profile" aria-label="Bluesky profile" rel="noopener noreferrer" target="_blank">
-                    <i class="fa-brands fa-square-bluesky"></i> BlueSky
+                    <i className="fa-brands fa-square-bluesky"></i> BlueSky
                 </a>
                 {/* instagram */}
                 | <a href="https://www.instagram.com/masemcontact/" title="Instagram profile" aria-label="Instageram profile" rel="noopener noreferrer" target="_blank">
@@ -27,7 +27,7 @@ export default function SocialLinks({ ...props }) {
                 </a>
                 {/* dev.to */}
                 | <a href="https://dev.to/huetteldorf" title="dev.to profile" aria-label="dev.to profile" rel="noopener norefferer" target="_blank">
-                    <i class="fa-solid fa-link"></i> Dev.to
+                    <i className="fa-solid fa-link"></i> Dev.to
                 </a>
                 {/* email */}
                 | <a href="mailto:contact@masem.at" title="Send an email to contact@masem.at" aria-label="Send an email to contact@masem.at" rel="noopener noreferrer" target="_blank">
@@ -39,7 +39,7 @@ export default function SocialLinks({ ...props }) {
                     title="masem newsletter"
                     aria-label="masem newsletter"
                     rel="noopener noreferrer"
-                ><i class="fa-solid fa-envelope-open-text"></i> Newsletter</a>
+                ><i className="fa-solid fa-envelope-open-text"></i> Newsletter</a>
             </div>
     );
 }

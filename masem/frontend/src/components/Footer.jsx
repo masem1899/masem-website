@@ -4,7 +4,7 @@ import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
     return (
-        <footer className="text-muted-foreground bg-card">
+        <footer className="text-muted-foreground bg-muted">
         <div className="py-10 text-center text-sm flex flex-col items-center space-y-2">
             <div>
                 <a href="#legal" className="mx-2 hover:underline">Legal Notice</a>

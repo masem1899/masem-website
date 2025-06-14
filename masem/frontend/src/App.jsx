@@ -8,7 +8,8 @@ import ToggleDarkMode from "./components/ToggleDarkMode"
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import SocialLinks from "./components/SocialLinks"
-
+import { VercelDebugBar } from 'vercel-debug-bar';
+import Blog from "./components/landing/Blog"
 
 
 
@@ -21,6 +22,9 @@ function App() {
         {/* Hero */}
         <Hero />
         
+        {/* Blog Section */}
+        <Blog />
+
         {/* Projects */}
         <Projects />
         
@@ -36,8 +40,9 @@ function App() {
       <ToggleDarkMode />
       <Analytics />
       <SpeedInsights />
+      {/* <VercelDebugBar /> */}
     </>
   )
 }
 
-export default App
+export default App 
