@@ -17,12 +17,15 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "firebase-admin": "^13.4.0",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.513.0",
     "marked": "^15.0.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.6.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
     "resend": "^4.5.2",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
@@ -30,6 +33,7 @@
     "vercel-debug-bar": "^1.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",

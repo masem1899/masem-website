@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
 
 
@@ -8,14 +9,21 @@ export default function handler(req, res) {
     const dir = path.join(process.cwd(), '/src/content/blog');
     const files = fs.readdirSync(dir);
 
-    const posts = files.map((filename) => {
-        const content = fs.readFileSync(path.join(dir, filename), 'utf-8');
-        return {
-            slug: filename.replace('.md', ''),
-            title: filename.split('-').slice(1).join(' ').replace('.md', ''),
-            content
-        };
-    });
+    const posts = files
+        .filter(file => file.endsWith('.md'))
+        .map((filename) => {
+            const absolute = path.join(dir, filename)
+            const fileContent = fs.readFileSync(absolute, 'utf-8');
+
+            const { data, content } = matter(fileContent);
+
+            return {
+                title: data.title || 'Untitled',
+                slug: data.slug || filename.replace('.md', ''),
+                date: data.date || null,
+                content
+            };
+        });
 
     return res.status(200).json(posts);
 }

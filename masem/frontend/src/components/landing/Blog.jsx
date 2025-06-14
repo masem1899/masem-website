@@ -1,5 +1,7 @@
 import { useBlogPosts } from "@/hooks/useBlogPosts";
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 
 
@@ -15,8 +17,16 @@ export default function Blog() {
                 <h2 className="text-3xl font-bold mb-4">Blog & Changelog</h2>
                 {posts.map((post) => (
                     <article key={post.slug} className="mb-8">
-                        <h3 className="text-xl font-semibold">{post.title}</h3>
-                        <ReactMarkdown>{post.content}</ReactMarkdown>
+                        <h3 className="text-2xl font-bold">{post.title}</h3>
+                        <p className="text-sm text-muted-foreground">{new Date(post.date).toLocaleDateString()}</p>
+                        <div  className="prose prose-neutral dark:prose-invert max-w-none">
+                            <ReactMarkdown 
+                                remarkPlugins={[remarkGfm]} 
+                                rehypePlugins={[rehypeRaw]}
+                            >
+                                {post.content}
+                            </ReactMarkdown>
+                        </div>
                     </article>
                 ))}
             </div>
