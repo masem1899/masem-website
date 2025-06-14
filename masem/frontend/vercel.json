@@ -3,9 +3,10 @@
         { "source": "/robots.txt", "destination":"/robots.txt"},
         { "source": "/sitemap.xml", "destination":"/sitemap.xml"},
         { "source": "/favicon.ico", "destination":"/favicon.ico"},
+        { "source": "/site.webmanifest", "destination":"/site.webmanifest"},
 
         { "source": "/api/(.*)", "destination": "/api/$1" },
 
-        { "source":"/(.*)", "destination":"/" }
+        { "source": "/((?!robots.txt|sitemap.xml|favicon.ico).*)", "destination": "/index.html" }
     ]
 }
