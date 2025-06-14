@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 
 
 export default function handler(req, res) {
-    const dir = path.join(process.cwd(), '/src/content/blog');
+    const dir = path.join(process.cwd(), '/public/content/blog');
     const files = fs.readdirSync(dir);
 
     const posts = files
