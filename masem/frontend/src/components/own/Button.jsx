@@ -11,7 +11,7 @@ export default function Button({ children, className = "", variant = "default", 
     }
     
     return (
-        <button 
+        <button
             className={`${base} ${variants[variant] || variants.default} ${className}`}
             {...props}
         >

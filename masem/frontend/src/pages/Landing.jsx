@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import AboutMe from "@/components/landing/AboutMe";
-import Blog from "@/components/landing/Blog";
+import Blogs from "@/components/landing/Blogs";
 import Hero from "@/components/landing/Hero";
 import Newsletter from "@/components/landing/Newsletter";
 import Projects from "@/components/landing/Projects";
@@ -16,13 +17,14 @@ function Landing() {
     return (
         <>
         <div className="font-sans bg-background text-foreground">
-            {/* social links */}
-            <div className="flex justify-end bg-muted text-foreground pt-1 pr-2"><span>&nbsp;</span><SocialLinks className="flex gap-3" /></div>
+            {/* Header */}
+            <Header />
+
             {/* Hero */}
             <Hero />
             
             {/* Blog Section */}
-            <Blog />
+            <Blogs />
 
             {/* Projects */}
             <Projects />
@@ -36,7 +38,6 @@ function Landing() {
             {/* Footer */}
             <Footer />
         </div>
-        <ToggleDarkMode />
         <Analytics />
         <SpeedInsights />
         {/* <VercelDebugBar /> */}

@@ -15,7 +15,7 @@ export const useProjects = () => {
         const loadProjects = async() => {
             try {
                 setLoading(true);
-                const res = await fetch(`${API_URL}/api/get-projects`);
+                const res = await fetch(`${API_URL}/projects`);
                 if(!res.ok) throw new Error('Fetching projects failed.')
                 const data = await res.json();
                 setProjects(data.projects || []);

@@ -1,29 +1,27 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import getDB from './_auth.js';
 
 
 
 
-export default function handler(req, res) {
-    const dir = path.join(process.cwd(), '/public/content/blog');
-    const files = fs.readdirSync(dir);
+export default async function handler(req, res) {
+    const { projectSlug } = req.query;
 
-    const posts = files
-        .filter(file => file.endsWith('.md'))
-        .map((filename) => {
-            const absolute = path.join(dir, filename)
-            const fileContent = fs.readFileSync(absolute, 'utf-8');
+    try {
+        const db = getDB();
+        let q = db.collection('blog-posts');
+        
+        if (projectSlug) q = q.where('projectSlug', '==', projectSlug);
 
-            const { data, content } = matter(fileContent);
-
-            return {
-                title: data.title || 'Untitled',
-                slug: data.slug || filename.replace('.md', ''),
-                date: data.date || null,
-                content
-            };
-        });
-
-    return res.status(200).json(posts);
+        q = q.orderBy('date', 'desc');
+        const snapshot = await q.get();
+        const posts = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        
+        res.status(200).json(posts);
+    } catch(error) {
+        console.log(error);
+        res.status(500).json({ error: 'Failed to fetch blog posts', detail: error.message });
+    }
 }
