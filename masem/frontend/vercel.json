@@ -6,6 +6,7 @@
         { "source": "/site.webmanifest", "destination":"/site.webmanifest"},
 
         { "source": "/api/(.*)", "destination": "/api/$1" },
+        { "source": "/_vercel/(.*)", "destination": "/_vercel/$1" },
 
         { "source": "/(.*)", "destination": "/index.html" }
     ]
