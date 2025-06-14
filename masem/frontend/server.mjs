@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.get('/api/get-projects', getProjectsHandler);
 
-app.get('/api/get-posts', getBlogPostsHandler);
+app.get('/api/get-blog-posts', getBlogPostsHandler);
 
 app.post('/api/save-subscriber', async (req, res) => {
     return getProjectsHandler(req, res);
