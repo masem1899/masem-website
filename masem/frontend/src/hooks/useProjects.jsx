@@ -19,7 +19,7 @@ export const useProjects = () => {
                 setLoading(true);
                 const res = await fetch(`${API_URL}/projects`);
                 if(!res.ok) throw new Error('Fetching projects failed.')
-                console.log('response: ', res);
+                
                 const data = await res.json();
                 setProjects(data.projects || []);
             } catch(error) {

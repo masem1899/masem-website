@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         
         res.status(200).json(posts);
     } catch(error) {
-        console.log(error);
+        console.error(error);
         res.status(500).json({ error: 'Failed to fetch blog posts', detail: error.message });
     }
 }

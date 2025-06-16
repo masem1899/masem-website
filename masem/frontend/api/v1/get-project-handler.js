@@ -7,7 +7,7 @@ import getDB from "./_auth.js";
 
 export default async function getProjectHandler(req, res) {
         const slug = req.params.slug;
-        console.log('slug', slug);
+        
         try {
             const db = getDB();
             let q = db.collection('projects');
@@ -16,11 +16,11 @@ export default async function getProjectHandler(req, res) {
             const snapshot = await q.get();
             
             if (!snapshot.empty) {
-                console.log(snapshot.docs[0]);
+                
                 const project = {
                     ...snapshot.docs[0].data()
                 }
-console.log('project', project);
+
                 res.status(200).json(project);
             } else {
                 res.status(404).json({ error:`Project ${slug} not exists` });
