@@ -1,3 +1,5 @@
+export const welcomeEmail_md = 
+`
 Thank you, for your message!
 ============================
 
@@ -15,3 +17,4 @@ You’ll hear from us when we build something worth sharing.
 Visit us on social media:
 
 [Instagram](https://www.instagram.com/masemcontact/) | [X (Twitter)](https://x.com/masemContact) | [GitHub](https://github.com/masem1899) | [Bluesky](https://masemcontact.bsky.social)
+`;

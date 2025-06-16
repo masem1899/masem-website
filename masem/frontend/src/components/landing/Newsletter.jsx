@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import Button from "../own/Button";
 import { useState } from "react";
+import { useAppSettings } from "@/hooks/useAppSettings";
 
 
 export default function Newsletter() {
@@ -11,7 +12,7 @@ export default function Newsletter() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const API_URL = import.meta.env.VITE_API_URL;
+        const { API_URL } = useAppSettings();
 
         if (!email || !email.includes('@')) {
             setStatus('error');
@@ -22,12 +23,11 @@ export default function Newsletter() {
         setStatus('loading');
 
 
-        const res = await fetch(`${API_URL}/api/save-subscriber`, {
+        const res = await fetch(`${API_URL}/subscriptions`, {
             method: 'POST',
             headers: { 'Content-Type':'application/json '},
             body: JSON.stringify({ email })
         });
-
         const data = await res.json();
 
         if (res.ok) {
@@ -75,7 +75,7 @@ export default function Newsletter() {
             </form>
             { status === 'success' && <p className="mt-4 text-green-600">You're successfully subscribed. Thank you!</p> }
             { status === 'error' && <p className="mt-4 text-red-600">Error: {errorMessage}</p> }
-            { status === 'exists' && <p className="mt-4 text-orange-500">You're already subscribed.</p> }
+            { status === 'already' && <p className="mt-4 text-orange-500">You're already subscribed.</p> }
         </section>
     );
 }
