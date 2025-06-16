@@ -16,10 +16,6 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 function Landing() {
     return (
         <>
-        <div className="font-sans bg-background text-foreground">
-            {/* Header */}
-            <Header />
-
             {/* Hero */}
             <Hero />
             
@@ -34,12 +30,7 @@ function Landing() {
 
             {/* About me */}
             <AboutMe />
-    
-            {/* Footer */}
-            <Footer />
-        </div>
-        <Analytics />
-        <SpeedInsights />
+
         {/* <VercelDebugBar /> */}
         </>
     )
