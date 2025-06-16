@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import getProjectsHandler from './api/v1/projects.js';
-import getBlogPostsHandler from './api/v1/posts.js';
+import { fetchPosts, fetchPost, savePost } from './api/v1/posts.js';
 import getProjectHandler from './api/v1/get-project-handler.js';
-import subscriptionsHandler from './api/v1/subscriptions.js';
+import  { saveSubscription } from './api/v1/subscriptions.js';
 
 const API_BASE = '/api/v1';
 
@@ -18,10 +18,12 @@ app.get(`${API_BASE}/projects`, getProjectsHandler);
 app.get(`${API_BASE}/project/:slug`, getProjectHandler);
 
 // posts
-app.get(`${API_BASE}/posts`, getBlogPostsHandler);
+app.get(`${API_BASE}/posts`, fetchPosts);
+app.get(`${API_BASE}/posts/:slug`, fetchPost);
+app.post(`${API_BASE/posts}`)
 
 // subscriptions
-app.post(`${API_BASE}/subscriptions`, subscriptionsHandler);
+app.post(`${API_BASE}/subscriptions`, saveSubscription);
 
 // subscriptions
 // app.post('/api/save-subscriber', async (req, res) => {

@@ -16,7 +16,7 @@ export default function MainLayout() {
             <Header />
             
             {/* Main Content */}
-            <main className="min-h-screen font-sans bg-background text-foreground">
+            <main className="min-h-screen font-sans bg-muted text-foreground">
                 <Outlet />
             </main>
 

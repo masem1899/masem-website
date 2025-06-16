@@ -7,7 +7,7 @@ import { welcomeEmail_md } from '../../email-templates/welcome-email.js';
 
 
 
-export default async function handler(req, res) {
+export async function saveSubscription(req, res) {
     if (req.method !== 'POST') return res.status(200).json({ error:'Method not allowed.' });
 
     const { email } = req.body;
