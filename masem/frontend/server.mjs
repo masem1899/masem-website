@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import getProjectsHandler from './api/get-projects.js';
+import getProjectsHandler from './api/projects.js';
 import getBlogPostsHandler from './api/get-blog-posts.js';
 import getProjectHandler from './api/get-project-handler.js';
 
