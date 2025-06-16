@@ -1,5 +1,6 @@
 import getDB from './_auth.js';
 import { marked } from 'marked';
+import { Resend } from 'resend';
 import { welcomeEmail_md } from '../../email-templates/welcome-email.js';
 
 
@@ -36,8 +37,25 @@ export default async function handler(req, res) {
             status: 'subscribed'
         });
 
+        // Load html from file
         const html = marked(welcomeEmail_md);
-        
+
+        const resend = new Resend(process.env.RESEND_API_KEY);
+    
+        // Add to audience
+        await resend.contacts.create({
+            email,
+            audienceId: 'b398f236-bb01-4d41-8ace-e9159e7eea80',
+        });
+
+        // Send welcome mail
+        await resend.emails.send({
+            from: 'masem <subscription@masem.at>',
+            to: email,
+            subject: 'Welcome to masem!',
+            html: html,
+        });
+
         return res.status(200).json({ success: true });
     } catch(err) {
         console.error('API error: ', err);
