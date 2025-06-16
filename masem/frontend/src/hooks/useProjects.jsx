@@ -10,14 +10,15 @@ export const useProjects = () => {
     const [loading, setLoading] = useState(true);
     
     const API_URL = import.meta.env.VITE_API_URL || '';
-    console.log("VITE_API_URL (import):", import.meta.env.VITE_API_URL)
-    console.log("VITE_API_URL (process):", process.env.VITE_API_URL)
+    // console.log("VITE_API_URL (import):", import.meta.env.VITE_API_URL)
+    
     useEffect(() => {
         const loadProjects = async() => {
             try {
                 setLoading(true);
                 const res = await fetch(`${API_URL}/projects`);
                 if(!res.ok) throw new Error('Fetching projects failed.')
+                console.log('response: ', res);
                 const data = await res.json();
                 setProjects(data.projects || []);
             } catch(error) {
