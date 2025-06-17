@@ -6,8 +6,9 @@ import getDB from './_auth.js';
 
 // GET /posts
 export async function fetchPosts(req, res) {
+    console.log('Fetching posts... fetchPosts');
     const { projectSlug } = req.query;
-    console.log('query', req.query);
+    
     try {
         const db = getDB();
         let q = db.collection('blog-posts');
@@ -30,6 +31,8 @@ export async function fetchPosts(req, res) {
 
 // GET /posts/:slug
 export async function fetchPost(req, res) {
+    console.log('Fetching posts... fetchPost');
+
     const { slug } = req.params;
     console.log('slug', slug);
     try {
@@ -93,5 +96,7 @@ export async function savePost(req, res) {
 
 
 export default async function handler(req, res) {
+    console.log('Fetching posts... handler');
+
     return res.status(404);
 }
