@@ -95,8 +95,11 @@ export async function savePost(req, res) {
 }
 
 
-export default async function handler(req, res) {
-    console.log('Fetching posts... handler');
+export default async function router(req, res) {
+    const { method, url } = req;
 
-    return res.status(404);
+    console.log('url: ', url);
+    console.log('response: ', res);
+
+    return res.status(405).json({ error:'Method not allowed' });
 }
