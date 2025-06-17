@@ -99,7 +99,7 @@ export default async function router(req, res) {
     const { method, url } = req;
 
     console.log('url: ', url);
-    console.log('response: ', res);
+    // console.log('response: ', res);
 
     return res.status(405).json({ error:'Method not allowed' });
 }
