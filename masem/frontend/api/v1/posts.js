@@ -1,5 +1,4 @@
 import getDB from './_auth.js';
-import matter from 'gray-matter';
 
 
 
@@ -90,4 +89,9 @@ export async function savePost(req, res) {
         console.error('API Error saving post: ' , error);
         return res.status(500).json({ error:'Internal Server Error' })
     }
+}
+
+
+export default function handler(req, res) {
+    return res.status(404);
 }
