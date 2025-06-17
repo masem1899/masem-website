@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { useAppSettings } from "@/hooks/useAppSettings";
 
 
 
@@ -18,41 +19,87 @@ const generateSlug = (title) => {
 
 
 export default function BlogEditor({ existingPost = null, onSave}) {
-    const [title, setTitle] = useState('');
-    const [slug, setSlug] = useState('');
-    const [date, setDate] = useState('');
-    const [content, setContent] = useState('');
-    const [tags, setTags] = useState('');
+    const [post, setPost] = useState({
+        title: '',
+        slug: '',
+        date: new Date().toISOString().split('T')[0],
+        content: '',
+        tags: [],
+    });
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    const { API_URL } = useAppSettings();
+
 
     useEffect(() => {
         if(existingPost) {
-            setTitle(existingPost.title);
-            setSlug(existingPost.slug);
-            setDate(existingPost.date);
-            setContent(existingPost.content);
-            setTags(existingPost.tags.join(', '));
+            setPost({ 
+                ...existingPost, 
+                tags: existingPost.tags?.join(', ') ?? ''
+            });
         } else {
-            const today = new Date().toISOString().split('T')[0];
-            setDate(today);
+            setPost({
+                title: '',
+                slug: '',
+                date: new Date().toISOString().split('T')[0],
+                content: '',
+                tags: '',
+            });
         }
     }, [existingPost]);
 
     useEffect(() => {
         if(!existingPost) {
-            setSlug(generateSlug(title));
+            setPost((prev) => ({
+                ...prev,
+                slug: generateSlug(prev.title),
+            }))};
+    }, [post.title]);
+
+    const handleChange = (field) => (e) => {
+        setPost((prev) => ({ ...prev, [field]:e.target.value }));
+    };
+
+    const handleSubmit = async () => {
+        const { title, slug, date, content } = post;
+        if (!title || !slug || !date || !content) {
+            setErrorMessage('All fields are required.');
+            return;
         }
-    }, [title]);
 
-    const handleSubmit = () => {
+        const payload = {
+            ...post,
+            tags: post.tags
+                .split(',')
+                .map((t) => t.trim())
+                .filter(Boolean),
+        };
 
+        try {
+            const res = await fetch(`${API_URL}/posts`, {
+                method: 'POST',
+                headers: { 'Content-Type':'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) throw new Error('Failed to save post.');
+
+            onSave && onSave(payload);
+        } catch(err) {
+            console.error('Save error: ', err);
+            setErrorMessage('Error saving post.');
+        }
     };
 
     return (
         <div className="space-y-4">
-            <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
-            <Input className="bg-muted" value={slug} onChange={(e) => setSlug(e.target.value)} placeholder="Slug" readOnly />
-            <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            <Textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="Markdown content" rows={15} />
+            { errorMessage && <p className="text-red-600">{errorMessage}</p> }
+            <Input value={post.title} onChange={handleChange('title')} placeholder="Title" 
+            />
+            <Input className="bg-muted" value={post.slug} placeholder="Slug" readOnly />
+            <Input type="date" value={post.date} onChange={handleChange('date')} />
+            <Input value={post.tags} onChange={handleChange('tags')} placeholder="Tags (comma separated)" />
+            <Textarea value={post.content} onChange={handleChange('content')} placeholder="Markdown content" rows={15} />
             <Button onClick={handleSubmit}>Save Post</Button>
         </div>
     );

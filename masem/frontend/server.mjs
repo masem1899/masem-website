@@ -20,7 +20,7 @@ app.get(`${API_BASE}/project/:slug`, getProjectHandler);
 // posts
 app.get(`${API_BASE}/posts`, fetchPosts);
 app.get(`${API_BASE}/posts/:slug`, fetchPost);
-app.post(`${API_BASE/posts}`)
+app.post(`${API_BASE}/posts`, savePost);
 
 // subscriptions
 app.post(`${API_BASE}/subscriptions`, saveSubscription);
