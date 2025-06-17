@@ -92,6 +92,6 @@ export async function savePost(req, res) {
 }
 
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     return res.status(404);
 }
