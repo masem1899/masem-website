@@ -32,7 +32,7 @@ export async function fetchPosts(req, res) {
 // GET /posts/:slug
 export async function fetchPost(req, res) {
     const { slug } = req.params;
-
+    console.log('slug', slug);
     try {
         const snapshot = await getDB()
             .collection('blog-posts')
