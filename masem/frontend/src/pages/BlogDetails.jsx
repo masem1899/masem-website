@@ -17,8 +17,8 @@ export default function BlogDetails() {
 
     useEffect(() => {
         setLoading(true);
-        console.log('blogDetails url: ', `${API_URL}/posts/${slug}`);
-        fetch(`${API_URL}/posts/${slug}`)
+        
+        fetch(`${API_URL}/posts?slug=${slug}`)
             .then((res) => res.json())
             .then((data) => setPost(data || {}))
             .catch((err) => console.error('error fetching post from api: ', err))
