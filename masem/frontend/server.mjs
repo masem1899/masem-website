@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import getProjectsHandler from './api/v1/projects.js';
-import { fetchPosts, fetchPost, savePost } from './api/v1/posts.js';
+import { fetchPosts, savePost } from './api/v1/posts/index.js';
+import { fetchPost } from './api/v1/posts/[slug].js'
 import getProjectHandler from './api/v1/get-project-handler.js';
 import  { saveSubscription } from './api/v1/subscriptions.js';
 
