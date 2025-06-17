@@ -5,7 +5,7 @@ import getDB from '../_auth.js';
 
 
 // GET /posts/:slug
-export async function fetchPost(req, res, slug) {
+export default async function fetchPost(req, res, slug) {
     console.log('Fetching posts... fetchPost');
 
     console.log('slug', slug);
