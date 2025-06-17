@@ -1,7 +1,7 @@
 import getDB from './_auth.js';
 
 
-
+const BASE_URL = process.env.VITE_API_URL;
 
 
 // GET /posts
@@ -30,10 +30,9 @@ export async function fetchPosts(req, res) {
 }
 
 // GET /posts/:slug
-export async function fetchPost(req, res) {
+export async function fetchPost(req, res, slug) {
     console.log('Fetching posts... fetchPost');
 
-    const { slug } = req.params;
     console.log('slug', slug);
     try {
         const snapshot = await getDB()
@@ -97,9 +96,25 @@ export async function savePost(req, res) {
 
 export default async function router(req, res) {
     const { method, url } = req;
+    const slug = url.replace(`${BASE_URL}/posts`, '');
 
     console.log('url: ', url);
-    // console.log('response: ', res);
+    console.log('slug: ', slug);
 
+    if (method === 'GET') {
+        if (slug === '') {
+            // GET /posts
+            return fetchPosts(req, res);
+        } else {
+            // GET /posts/:slug
+            return fetchPost(req, res, slug);
+        }
+    }
+
+    if (method === 'POST') {
+        // POST /posts
+        return savePost(req, res);
+    }
+    
     return res.status(405).json({ error:'Method not allowed' });
 }
