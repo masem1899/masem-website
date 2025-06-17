@@ -67,3 +67,17 @@ export async function savePost(req, res) {
 }
 
 
+export default function router(req, res) {
+    const { method, url } = req;
+
+    if (method === 'GET') {
+        // GET /posts
+        return fetchPosts(req, res);
+    }
+    if (method === 'POST') {
+        // POST /posts
+        return savePost(req, res);
+    }
+
+    return res.status(405).json({ error:'Method not allowed' });
+}
