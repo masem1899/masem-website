@@ -7,7 +7,7 @@ import getDB from './_auth.js';
 // GET /posts
 export async function fetchPosts(req, res) {
     const { projectSlug } = req.query;
-
+    console.log('query', req.query);
     try {
         const db = getDB();
         let q = db.collection('blog-posts');
@@ -21,10 +21,10 @@ export async function fetchPosts(req, res) {
             ...doc.data()
         }));
         
-        res.status(200).json(posts);
+        return res.status(200).json(posts);
     } catch(error) {
         console.error(error);
-        res.status(500).json({ error: 'Failed to fetch blog posts', detail: error.message });
+        return res.status(500).json({ error: 'Failed to fetch blog posts', detail: error.message });
     }
 }
 
