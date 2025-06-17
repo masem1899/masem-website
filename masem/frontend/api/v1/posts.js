@@ -1,11 +1,10 @@
-import getDB from '../_auth.js';
+import getDB from './_auth.js';
 
 
 
 
 // GET /posts
 export async function fetchPosts(req, res) {
-    console.log('Fetching posts... fetchPosts');
     const { projectSlug } = req.query;
     
     try {
@@ -70,9 +69,6 @@ export async function savePost(req, res) {
 
 // GET /posts/:slug
 export async function fetchPost(req, res, slug) {
-    console.log('Fetching posts... fetchPost');
-
-    console.log('slug', slug);
     try {
         const snapshot = await getDB()
             .collection('blog-posts')
