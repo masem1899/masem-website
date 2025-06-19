@@ -19,7 +19,7 @@
     "express": "^5.1.0",
     "firebase": "^11.9.1",
     "firebase-admin": "^13.4.0",
-    "gq-to-sql": "file:gq-to-sql-0.1.1.tgz",
+    "gq-to-sql": "^0.2.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.513.0",
     "marked": "^15.0.12",
