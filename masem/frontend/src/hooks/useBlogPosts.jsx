@@ -5,7 +5,7 @@ import { useAppSettings } from "./useAppSettings";
 
 
 
-export const useBlogPosts = (projectSlug = null) => {
+export const useBlogPosts = (projectId = null) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -17,7 +17,7 @@ export const useBlogPosts = (projectSlug = null) => {
             try {
                 setLoading(true);
                 const url = projectSlug
-                    ? `${API_URL}/posts?projectSlug=${encodeURIComponent(projectSlug)}`
+                    ? `${API_URL}/posts?$filter=relation eq 'projects' and relationId eq ${projectId}&$orderby=date desc`
                     : `${API_URL}/posts?$orderby=date desc`;
 
                 const res = await fetch(`${url}`);

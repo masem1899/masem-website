@@ -16,17 +16,19 @@ const ProjectDetails = () => {
     const [ loading, setLoading ] = useState(false);
 
     const { slug } = useParams();
-    const { posts, loading: blogLoading } = useBlogPosts(slug)
-
+    //const { posts, loading: blogLoading } = useBlogPosts(slug)
+    const posts = [];
+    const blogLoading = false;
+    
     const API_URL = import.meta.env.VITE_API_URL || '';
 
     useEffect(() => {
         const loadProject = async() => {
             try {
                 setLoading(true);
-                const res = await fetch(`${API_URL}/project?$filter=slug -eq ${encodeURIComponent(slug)}&$order=date desc`);
+                const res = await fetch(`${API_URL}/projects?$filter=name -eq '${encodeURIComponent(slug)}'`);
                 const data = await res.json();
-                setProject(data);
+                setProject(data[0] || {});
             } catch(error) {
                 console.error('Error fetching project details', error);
             } finally {
@@ -44,9 +46,6 @@ const ProjectDetails = () => {
     return (
         <>
             <div className="font-sans bg-muted text-foreground">
-                {/* Header */}
-                <Header />
-
                 <div className="max-w-3xl bg-muted mx-auto px-6 py-10">
                     {/* project details */}
                     <h1 className="text-3xl font-bold mb-2">{project.icon} {project.name}</h1>
@@ -80,11 +79,6 @@ const ProjectDetails = () => {
                     </ul>
                 </div>
             </div>
-            {/* Footer */}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-            {/* <VercelDebugBar /> */}
         </>
     )
 };
