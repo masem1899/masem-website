@@ -18,7 +18,7 @@ export const useBlogPosts = (projectSlug = null) => {
                 setLoading(true);
                 const url = projectSlug
                     ? `${API_URL}/posts?projectSlug=${encodeURIComponent(projectSlug)}`
-                    : `${API_URL}/posts`;
+                    : `${API_URL}/posts?$orderby=date desc`;
 
                 const res = await fetch(`${url}`);
                 

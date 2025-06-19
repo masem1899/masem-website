@@ -24,7 +24,7 @@ const ProjectDetails = () => {
         const loadProject = async() => {
             try {
                 setLoading(true);
-                const res = await fetch(`${API_URL}/project/${encodeURIComponent(slug)}`);
+                const res = await fetch(`${API_URL}/project?$filter=slug -eq ${encodeURIComponent(slug)}&$order=date desc`);
                 const data = await res.json();
                 setProject(data);
             } catch(error) {

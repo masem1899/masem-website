@@ -18,9 +18,9 @@ export default function BlogDetails() {
     useEffect(() => {
         setLoading(true);
         
-        fetch(`${API_URL}/posts?slug=${slug}`)
+        fetch(`${API_URL}/posts?$filter=slug eq '${slug}'`)
             .then((res) => res.json())
-            .then((data) => setPost(data || {}))
+            .then((data) => setPost(data[0] || {}))
             .catch((err) => console.error('error fetching post from api: ', err))
             .finally(() => setLoading(false));
     

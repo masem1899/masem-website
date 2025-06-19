@@ -21,7 +21,7 @@ export const useProjects = () => {
                 if(!res.ok) throw new Error('Fetching projects failed.')
                 
                 const data = await res.json();
-                setProjects(data.projects || []);
+                setProjects(data || []);
             } catch(error) {
                 console.error('Error fetching projects: ', error);
             } finally {
