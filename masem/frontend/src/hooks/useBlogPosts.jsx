@@ -33,7 +33,7 @@ export const useBlogPosts = (projectId = null) => {
         };
 
         loadBlogPosts();
-    }, [projectSlug]);
+    }, [projectId]);
 
     return { posts, loading };
 };
