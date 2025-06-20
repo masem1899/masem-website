@@ -13,7 +13,7 @@ export default function AboutMe() {
     const { API_URL } = useAppSettings();
 
     useEffect(() => {
-        fetch(`${API_URL}/knowledge`)
+        fetch(`${API_URL}/knowledge?$orderby=name`)
             .then((res) => res.json())
             .then((data) => {
                 setKnowledge(data || []);
@@ -37,12 +37,17 @@ export default function AboutMe() {
             <div className="flex mt-2 justify-center">
                 <img src="assets/mario.png" alt="picture of mario" title="picture of mario" width="300"/>
             </div>
-            <h4 className="font-semibold mt-4">Knowldege and expirience:</h4>
+            <h4 className="font-semibold mt-4">Knowledge and expirience:</h4>
             <p className="mt-1 text-muted-foreground">
-                {knowledge?.map(k => (
-                    <ALink label={k.name} href={k.url} target="_blank" className="underline mr-1">{k.name}</ALink>
-                ))}
+                {knowledge?.map((k, index) => (
+                    <>
+                        <ALink key={k.id} label={k.name} href={k.url} target="_blank" className="underline mr-1">{k.name}</ALink>
+                        {(index + 1) % 8 === 0 && <br/>}
+                    </>
+                ))};
             </p>
+            <h4 className="font-semibold mt-4">Hobbies:</h4>
+            <p className="mt-1 text-muted-foreground">Soccer (not active anymore), Skiiing, Reading, Netflix, Garden, Programming and last but not least, my Family and cat Luna.</p>
         </section>
     );
 }
