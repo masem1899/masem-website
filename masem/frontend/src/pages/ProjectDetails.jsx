@@ -16,9 +16,7 @@ const ProjectDetails = () => {
     const [ loading, setLoading ] = useState(false);
 
     const { slug } = useParams();
-    //const { posts, loading: blogLoading } = useBlogPosts(slug)
-    const posts = [];
-    const blogLoading = false;
+    const { posts, loading: blogLoading } = useBlogPosts(slug)
     
     const API_URL = import.meta.env.VITE_API_URL || '';
 
@@ -26,7 +24,7 @@ const ProjectDetails = () => {
         const loadProject = async() => {
             try {
                 setLoading(true);
-                const res = await fetch(`${API_URL}/projects?$filter=name -eq '${encodeURIComponent(slug)}'`);
+                const res = await fetch(`${API_URL}/projects?$filter=slug -eq '${encodeURIComponent(slug)}'`);
                 const data = await res.json();
                 setProject(data[0] || {});
             } catch(error) {
