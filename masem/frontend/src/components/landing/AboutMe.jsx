@@ -40,7 +40,7 @@ export default function AboutMe() {
             <h4 className="font-semibold mt-4">Knowldege and expirience:</h4>
             <p className="mt-1 text-muted-foreground">
                 {knowledge?.map(k => (
-                    <ALink label={k.name} href={k.url} target="_blank" className="underline">{k.name}</ALink>
+                    <ALink label={k.name} href={k.url} target="_blank" className="underline mr-1">{k.name}</ALink>
                 ))}
             </p>
         </section>
