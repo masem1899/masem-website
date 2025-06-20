@@ -8,7 +8,7 @@ import ALink from "../own/ALink";
 
 
 export default function Blogs() {
-    const { posts, loading } = useBlogPosts();
+    const { posts, loading } = useBlogPosts(null);
 
     if (loading) return <p className="text-center">Loading blog posts...</p>
 

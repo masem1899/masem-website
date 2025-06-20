@@ -16,9 +16,10 @@ export const useBlogPosts = (projectSlug = null) => {
         const loadBlogPosts = async() => {
             try {
                 setLoading(true);
-                const url = projectSlug
-                    ? `${API_URL}/posts?$filter=project_slug eq '${projectSlug}'&$orderby=date desc`
-                    : `${API_URL}/posts?$orderby=date desc`;
+                const url = `${API_URL}/posts` + 
+                    (projectSlug
+                        ? `?$filter=project_slug eq '${projectSlug}'&$orderby=date desc`
+                        : `?$orderby=date desc`);
 
                 const res = await fetch(`${url}`);
                 
