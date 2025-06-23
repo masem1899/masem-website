@@ -15,31 +15,24 @@ export default async function handler(request, response) {
   const isBot = bots.some(bot => userAgent.includes(bot));
 
   if (!isBot) {
-    return response.status(404).end(); // Normaler Nutzer => nichts rendern
+    return response.status(404).end();
   }
 
   console.info('Bot detected:', userAgent);
 
-  // Fallback-URL-Basis, falls URL relativ ist
-  const absoluteUrl = new URL(request.url, `https://${request.headers.host}`);
-
-  const targetUrl = `https://service.prerender.io${absoluteUrl.pathname}${absoluteUrl.search}`;
+  const targetUrl = `https://service.prerender.io${request.url}`;
 
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
-    'User-Agent': userAgent
+    'User-Agent': userAgent,
   };
 
   try {
     const fetchResponse = await fetch(targetUrl, { headers });
     const html = await fetchResponse.text();
-
-    return response
-      .status(fetchResponse.status)
-      .setHeader('Content-Type', 'text/html')
-      .send(html);
+    response.status(fetchResponse.status).send(html);
   } catch (err) {
-    console.error('Prerender error:', err);
-    return response.status(500).send("Prerender error");
+    console.error('Prerender error: ', err);
+    response.status(500).send('Prerender error');
   }
 }
