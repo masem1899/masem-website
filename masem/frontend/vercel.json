@@ -1,14 +1,40 @@
 {
-    "rewrites": [
-        { "source": "/robots.txt", "destination":"/robots.txt"},
-        { "source": "/sitemap.xml", "destination":"/sitemap.xml"},
-        { "source": "/favicon.ico", "destination":"/favicon.ico"},
-        { "source": "/site.webmanifest", "destination":"/site.webmanifest"},
-
-        { "source": "/api/(.*)", "destination": "/api/$1" },
-        
-        { "source": "/_vercel/(.*)", "destination": "/_vercel/$1" },
-
-        { "source": "/(.*)", "destination": "/index.html" }
-    ]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot).*"
+        }
+      ],
+      "destination": "https://service.prerender.io/https://www.masem.at/:1"
+    },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/site.webmanifest", "destination": "/site.webmanifest" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/_vercel/(.*)", "destination": "/_vercel/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot).*"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Prerender-Token",
+          "value": "Nw2V48rcSh7oubSszKPk"
+        }
+      ]
+    }
+  ]
 }
