@@ -1,11 +1,10 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import ALink from "@/components/own/ALink";
 import { useBlogPosts } from "@/hooks/useBlogPosts";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 
 
@@ -46,8 +45,22 @@ const ProjectDetails = () => {
             <div className="font-sans bg-muted text-foreground">
                 <div className="max-w-3xl bg-muted mx-auto px-6 py-10">
                     {/* project details */}
-                    <h1 className="text-3xl font-bold mb-2">{project.icon} {project.name}</h1>
-                    <p className="mb-4 text-muted-foreground">{project.description}</p>
+                    <h1 className="text-3xl font-bold mb-2">{project.icon} {project.name} - Project summary</h1>
+                    {project.details
+                        ? (
+                            <div className="prose dark:prose-invert max-w-none">
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    rehypePlugins={[rehypeRaw]}
+                                >
+                                    {project.details}
+                                </ReactMarkdown>
+                            </div>
+                        )
+                        : <p className="mb-4 text-muted-foreground">{project.description}</p>
+                    }
+                    
+                    
                     <div className="mb-6 text-xs text-muted-foreground">
                         Tags: { project.tags?.join(', ') || 'none' }
                     </div>
