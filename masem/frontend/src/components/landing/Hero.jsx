@@ -23,12 +23,15 @@ export default function Hero() {
                         Hobby projects, experiments, and tools - and maybe more in the future.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <Button onClick={() => scrollTo('newsletter')}>
+                        <Button onClick={() => scrollTo('projects')}>
                             Projects
                         </Button>
-                        <Button variant="outline" onClick={() => scrollTo('newsletter')}>
-                            Newsletter
+                        <Button variant="outline" onClick={() => scrollTo('news')}>
+                            News
                         </Button>
+                        {/* <Button variant="outline" onClick={() => scrollTo('newsletter')}>
+                            Newsletter
+                        </Button> */}
                     </div>
                 </div>
             </section>
