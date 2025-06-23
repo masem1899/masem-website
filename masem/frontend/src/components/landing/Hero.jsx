@@ -26,7 +26,7 @@ export default function Hero() {
                         <Button onClick={() => scrollTo('projects')}>
                             Projects
                         </Button>
-                        <Button variant="outline" onClick={() => scrollTo('news')}>
+                        <Button variant="outline" onClick={() => scrollTo('blog-posts')}>
                             News
                         </Button>
                         {/* <Button variant="outline" onClick={() => scrollTo('newsletter')}>
