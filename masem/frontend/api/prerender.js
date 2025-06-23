@@ -13,26 +13,26 @@ export default async function handler(request, response) {
 
   const userAgent = request.headers['user-agent']?.toLowerCase() || '';
   const isBot = bots.some(bot => userAgent.includes(bot));
-
-  if (!isBot) {
-    return response.status(404).end();
-  }
+  if (!isBot) return response.status(404).end();
 
   console.info('Bot detected:', userAgent);
 
-  const targetUrl = `https://service.prerender.io${request.url}`;
+  const { searchParams } = new URL(request.url, `http://${request.headers.host}`);
+  const path = searchParams.get('path') || '/';
+
+  const targetUrl = `https://service.prerender.io/https://www.masem.at${path}`;
 
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
-    'User-Agent': userAgent,
+    'User-Agent': userAgent
   };
 
   try {
     const fetchResponse = await fetch(targetUrl, { headers });
     const html = await fetchResponse.text();
-    response.status(fetchResponse.status).send(html);
+    return response.status(fetchResponse.status).send(html);
   } catch (err) {
-    console.error('Prerender error: ', err);
-    response.status(500).send('Prerender error');
+    console.error('Prerender error:', err);
+    return response.status(500).send("Prerender error");
   }
 }

@@ -9,7 +9,7 @@
           "value": ".*(googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot).*"
         }
       ],
-      "destination": "/api/prerender"
+      "destination": "/api/prerender?path=/$1"
     },
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
