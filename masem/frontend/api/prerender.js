@@ -58,7 +58,8 @@ export default async function handler(request, response) {
 
   console.info('Bot: ', userAgent);
 
-  const targetUrl = `https://service.prerender.io${request.url}`;
+  const targetUrl = `https://service.prerender.io${request.nextUrl.pathname}${request.nextUrl.search}`;
+  
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
     'User-Agent': userAgent
