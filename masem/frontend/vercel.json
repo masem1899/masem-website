@@ -9,7 +9,7 @@
           "value": ".*(googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot).*"
         }
       ],
-      "destination": "https://service.prerender.io/https://www.masem.at/$1"
+      "destination": "/api/prerender"
     },
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
