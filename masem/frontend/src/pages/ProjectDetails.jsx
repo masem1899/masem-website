@@ -65,6 +65,11 @@ const ProjectDetails = () => {
                         Tags: { project.tags?.join(', ') || 'none' }
                     </div>
 
+                    <div className="text-center">
+                        <script src="https://liberapay.com/masem/widgets/button.js"></script>
+                        <noscript><a href="https://liberapay.com/masem/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" /></a></noscript>
+                    </div>
+
                     {project.url && (
                         <ALink href={project.url} className="text-blue-600 underline" label="Visit project homepage">Visit Project</ALink>
                     )}
