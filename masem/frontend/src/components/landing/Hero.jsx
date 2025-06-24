@@ -30,7 +30,7 @@ export default function Hero() {
                         <Button variant="outline" onClick={() => scrollTo('blog-posts')}>
                             News
                         </Button>
-                        <a onClick={() => scrollTo('newsletter')} href="#" className="underline">Newsletter</a>
+                        {/* <a onClick={() => scrollTo('newsletter')} href="#" className="underline">Newsletter</a> */}
                         {/* <Button variant="outline" onClick={() => scrollTo('newsletter')}>
                             Newsletter
                         </Button> */}

@@ -26,7 +26,7 @@ function Landing() {
             <Projects />
             
             {/* Newsletter */}
-            <Newsletter />
+            {/* <Newsletter /> */}
 
             {/* About me */}
             <AboutMe />
