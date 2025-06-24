@@ -1,5 +1,6 @@
 import masemLogUrl from "@/assets/masem-logo.png";
 import Button from "@/components/own/Button";
+import ALink from "../own/ALink";
 
 
 
@@ -22,13 +23,14 @@ export default function Hero() {
                     <p className="text-lg">
                         Hobby projects, experiments, and tools - and maybe more in the future.
                     </p>
-                    <div className="flex justify-center gap-4">
+                    <div className="flex justify-center gap-4 items-center">
                         <Button onClick={() => scrollTo('projects')}>
                             Projects
                         </Button>
                         <Button variant="outline" onClick={() => scrollTo('blog-posts')}>
                             News
                         </Button>
+                        <a onClick={() => scrollTo('newsletter')} href="#" className="underline">Newsletter</a>
                         {/* <Button variant="outline" onClick={() => scrollTo('newsletter')}>
                             Newsletter
                         </Button> */}
