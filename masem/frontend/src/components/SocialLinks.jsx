@@ -20,6 +20,10 @@ export default function SocialLinks({ ...props }) {
                 | <a href="" title="Facebook profile" aria-label="Facebook profile" rel="noopener noreferrer" target="_blank">
                     <i className="fa-brands fa-facebook"></i>{showText && <span className="ml-1">Facebook</span>} 
                 </a>
+                {/* Youtube */}
+                | <a href="https://www.youtube.com/@masem-contact" title="Youtbe profile" aria-label="Youtube profile" rel="noopener noreferrer" target="_blank">
+                    <i className="fa-brands fa-youtube"></i>{showText && <span className="ml-1">Youtube</span>} 
+                </a>
                 {/* x twitter */}
                 | <a href="https://x.com/masemContact" title="X (Twitter) profile" aria-label="X (Twitter) profile" rel="noopener noreferrer" target="_blank">
                     <i className="fab fa-x-twitter"></i> {showText && <span className="ml-1">X-Twitter</span>} 
