@@ -17,7 +17,7 @@ export default function SocialLinks({ ...props }) {
                     <i className="fa-brands fa-linkedin"></i> {showText && <span className="ml-1">LinkedIn</span>} 
                 </a>
                 {/* facebook */}
-                | <a href="" title="Facebook profile" aria-label="Facebook profile" rel="noopener noreferrer" target="_blank">
+                | <a href="https://www.facebook.com/profile.php?id=61577638680516" title="Facebook profile" aria-label="Facebook profile" rel="noopener noreferrer" target="_blank">
                     <i className="fa-brands fa-facebook"></i>{showText && <span className="ml-1">Facebook</span>} 
                 </a>
                 {/* Youtube */}
