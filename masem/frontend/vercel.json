@@ -1,5 +1,5 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/(.*)",
       "has": [
@@ -10,7 +10,9 @@
       ],
       "destination": "https://masem.at/:1",
       "statusCode": 308
-    },
+    }
+  ],
+  "rewrites": [
     {
       "source": "/(.*)",
       "has": [
