@@ -22,6 +22,10 @@
           "value": ".*(googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot).*"
         }
       ],
+      "missing": [
+        { "type": "header", "key": "x-prerender-bypass" },
+        { "type": "host", "value": "localhost" }
+      ],
       "destination": "/api/prerender?path=/:path*"
     },
     { "source": "/robots.txt", "destination": "/robots.txt" },
