@@ -4,6 +4,17 @@
       "source": "/(.*)",
       "has": [
         {
+          "type": "host",
+          "value": "www.masem.at"
+        }
+      ],
+      "destination": "https://masem.at/:1",
+      "statusCode": 308
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
           "type": "header",
           "key": "user-agent",
           "value": ".*(googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot).*"
