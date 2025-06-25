@@ -4,13 +4,43 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://www.masem.at/</loc>
-  <lastmod>2025-06-11T13:44:42+00:00</lastmod>
-</url>
-
-
+    <url>
+        <loc>https://masem.at/projects/gq-to-sql</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/projects/vercel-debug-bar</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/projects/pysqoa-web-analyzer-site</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/projects/mocksy-api</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/projects/gq-to-sql-client</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/projects/pyseoa</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/projects/pyseoa-ts</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/posts/pyseoa-version-010-released</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/posts/introducing-gqtosql-graphstyle-url-filtering-for-sql</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/posts/v020-of-gq-to-sql-released</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/posts/introducing-vercel-debug-bar</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/posts/introducing-pyseoa-ts-typescript-seo-analyzer-for-modern-web-apps</loc>
+    </url>
+    <url>
+        <loc>https://masem.at/posts/announcing-pyseoa-ts-v020-more-power-more-control</loc>
+    </url>
 </urlset>
