@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 
 
@@ -36,6 +37,7 @@ const ProjectDetails = () => {
         loadProject();
     }, [slug]);
 
+    usePrerenderReady(project !== null);
 
     if (loading) return <p className="text-center mt-10">Loading project...</p>
     if (!project) return <p className="text-center mt-10">Project not found.</p>

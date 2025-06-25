@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import HiddenForIPList from "../own/HiddenForIPList";
+import { useEffect } from "react";
 
 
 
@@ -11,6 +12,15 @@ import HiddenForIPList from "../own/HiddenForIPList";
 
 
 export default function MainLayout() {
+
+    // for prerender.io
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.prerenderReady = false;
+        }
+    }, []);
+
+
     return (
         <>
             {/* Header */}
