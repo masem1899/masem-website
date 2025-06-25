@@ -19,8 +19,10 @@ export default async function handler(request, response) {
 
   const { searchParams } = new URL(request.url, `http://${request.headers.host}`);
   const path = searchParams.get('path') || '/';
+  const safePath = path.startsWith('/') ? path : `/${path}`;
+  const targetUrl = `https://service.prerender.io/https://masem.at${safePath}`;
 
-  const targetUrl = `https://service.prerender.io/https://www.masem.at${path}`;
+  console.log('prerender.io url:', targetUrl);
 
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
@@ -31,7 +33,7 @@ export default async function handler(request, response) {
     const fetchResponse = await fetch(targetUrl, { headers });
     const html = await fetchResponse.text();
     console.log("prerender response status: ", fetchResponse.status);
-    console.log("prerender response html: ", html);
+    
     return response.status(fetchResponse.status).send(html);
   } catch (err) {
     console.error('Prerender error:', err);
