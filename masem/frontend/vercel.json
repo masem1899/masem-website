@@ -1,4 +1,17 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.masem.at"
+        }
+      ],
+      "destination": "https://masem.at/:1",
+      "statusCode": 308
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -12,7 +25,7 @@
       "destination": "/api/prerender?path=/$1"
     },
     { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/api/v1/sitemap" },
+    { "source": "/sitemap.xml", "destination": "sitemap.xml" },
     { "source": "/favicon.ico", "destination": "/favicon.ico" },
     { "source": "/site.webmanifest", "destination": "/site.webmanifest" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
