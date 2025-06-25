@@ -18,25 +18,45 @@ export default async function handler(request, response) {
   console.info('Bot detected:', userAgent);
 
   const { searchParams } = new URL(request.url, `http://${request.headers.host}`);
-  const path = searchParams.get('path') || '/';
-  const safePath = path.startsWith('/') ? path : `/${path}`;
+  const rawPath = searchParams.get('path') || '/';
+  const safePath = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
+
   const targetUrl = `https://service.prerender.io/https://masem.at${safePath}`;
-
-  console.log('prerender.io url:', targetUrl);
-
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
     'User-Agent': userAgent
   };
 
   try {
-    const fetchResponse = await fetch(targetUrl, { headers });
+    const fetchResponse = await fetch(targetUrl, { headers, timeout: 8000 });
     const html = await fetchResponse.text();
+
     console.log("prerender response status: ", fetchResponse.status);
-    
-    return response.status(fetchResponse.status).send(html);
+    console.log("prerender response html: ", html);
+
+    if (fetchResponse.ok && html.trim().length > 0) {
+      return response.status(200).send(html);
+    }
+
+    throw new Error('Empty or invalid prerender response');
   } catch (err) {
-    console.error('Prerender error:', err);
-    return response.status(500).send("Prerender error");
+    console.error('Prerender error or timeout:', err);
+
+    // Minimal static fallback HTML
+    const fallbackHtml = `
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <title>masem.at</title>
+          <meta name="robots" content="noindex,nofollow">
+        </head>
+        <body>
+          <h1>masem.at</h1>
+          <p>Fallback content for bots.</p>
+        </body>
+      </html>
+    `;
+    return response.status(200).send(fallbackHtml);
   }
 }
