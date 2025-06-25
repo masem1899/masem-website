@@ -30,6 +30,8 @@ export default async function handler(request, response) {
   try {
     const fetchResponse = await fetch(targetUrl, { headers });
     const html = await fetchResponse.text();
+    console.log("prerender response status: ", fetchResponse.status);
+    console.log("prerender response html: ", html);
     return response.status(fetchResponse.status).send(html);
   } catch (err) {
     console.error('Prerender error:', err);
