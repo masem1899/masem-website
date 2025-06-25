@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { usePrerenderReady } from "@/hooks/usePrerenderReady";
-import { Helmet } from "react-helmet";
+import { SeoMeta } from "@/components/own/SeoMeta";
 
 
 
@@ -45,27 +45,13 @@ const ProjectDetails = () => {
 
     return (
         <>
-            <Helmet>
-                {/* Browser + SEO */}
-                <title>{project.name} – Masem</title>
-                <meta name="title" content={`${project.name} – Masem`} />
-                <meta name="description" content={project.description} />
-                <link rel="canonical" href={`https://www.masem.at/projects/${slug}`} />
-
-                {/* Open Graph */}
-                <meta property="og:title" content={`${project.name} – Masem`} />
-                <meta property="og:description" content={project.description} />
-                <meta property="og:image" content={project.image} />
-                <meta property="og:url" content={`https://www.masem.at/projects/${slug}`} />
-                <meta property="og:type" content="article" />
-
-                {/* Twitter */}
-                <meta name="twitter:title" content={`${project.name} – Masem`} />
-                <meta name="twitter:description" content={project.description} />
-                <meta name="twitter:image" content={project.image} />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Helmet>
-
+            {/* SEO */}            
+            <SeoMeta
+                title={`${project.name} – Masem`}
+                description={project.description}
+                url={`https://www.masem.at/projects/${slug}`}
+                image={project.image}
+            />
 
             
             <div className="font-sans bg-muted text-foreground">
