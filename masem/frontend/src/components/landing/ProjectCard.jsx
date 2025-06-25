@@ -10,7 +10,7 @@ const ProjectCard = ({ project }) => (
         <p className="text-muted-foreground">{project.description}</p>
 
         <Link
-            to={`/projects/${project.name}`}
+            to={`/projects/${project.slug}`}
             className="text-blue-600 underline inline-block"
         >
             View Details
