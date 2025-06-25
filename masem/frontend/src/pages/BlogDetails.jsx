@@ -30,18 +30,26 @@ export default function BlogDetails() {
     if (!post) return <p className="text-center mt-10">Post not found.</p>
 
     return (
-        <div className="max-w-3xl mx-auto p-6">
-            <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-            <p className="text-sm mb-6">{new Date(post.date).toLocaleDateString()}</p>
+        <>
+            <SeoMeta
+                title={`${post.title} – Masem`}
+                description={post.title}
+                url={`https://www.masem.at/projects/${post.slug}`}
+                image=""
+            />
+            <div className="max-w-3xl mx-auto p-6">
+                <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+                <p className="text-sm mb-6">{new Date(post.date).toLocaleDateString()}</p>
 
-            <div className="prose dark:prose-invert max-w-none">
-                <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[rehypeRaw]}
-                >
-                    {post.content}
-                </ReactMarkdown>
+                <div className="prose dark:prose-invert max-w-none">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                    >
+                        {post.content}
+                    </ReactMarkdown>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
