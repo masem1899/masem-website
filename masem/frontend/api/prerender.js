@@ -1,6 +1,23 @@
 import { BOTS } from "./bots";
+import { pool, pgPlaceholders } from './v1/_neon.js';
 
 
+
+
+
+
+async function botlog(userAgent, targetUrl) {
+  const query = {
+    text: "INSERT INTO botlogs (project, userAgent, targetUrl) VALUES ($1, $2, $3)",
+    values: ["masem.at",userAgent,targetUrl]
+  };
+
+  try {
+    const res = await pool.query(query);
+  } catch(err) {
+    console.log("error inserting bot log: ", err);
+  }
+}
 
 
 export default async function handler(request, response) {
@@ -21,14 +38,17 @@ export default async function handler(request, response) {
   if (!isBot) return response.status(404).end();
 
   console.info('Bot detected:', userAgent);
-
+  
   const { searchParams } = new URL(request.url, `http://${request.headers.host}`);
   const rawPath = searchParams.get('path') || '/';
   console.log("requested:", rawPath);
   const safePath = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
-
+  
   const targetUrl = `https://service.prerender.io/https://masem.at${safePath}`;
   console.log("request to prerender:", targetUrl);
+  
+  await botlog(userAgent, targetUrl);
+  
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
     'User-Agent': userAgent
