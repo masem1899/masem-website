@@ -71,10 +71,10 @@ export default function MainLayout() {
             <Footer />
 
             {/* Analytics */}
-            <HiddenForIPList hideFor="[77.220.109.78]">
+            {/* <HiddenForIPList hideFor="[77.220.109.78]">
                 <Analytics />
                 <SpeedInsights />
-            </HiddenForIPList>
+            </HiddenForIPList> */}
         </>
     )
 }
