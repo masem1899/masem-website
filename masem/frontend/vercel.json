@@ -28,6 +28,7 @@
       ],
       "destination": "/api/prerender?path=/:path*"
     },
+    { "source": "/ea8b3151b6094ffe88a2012bce6e9b28.txt", "destination": "/ea8b3151b6094ffe88a2012bce6e9b28.txt"},
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
     { "source": "/favicon.ico", "destination": "/favicon.ico" },
