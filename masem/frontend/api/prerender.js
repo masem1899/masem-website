@@ -57,6 +57,7 @@ export default async function handler(request, response) {
         </body>
       </html>
     `;
+    console.log("send fallback html:", fallbackHtml);
     return response.status(200).send(fallbackHtml);
   }
 }
