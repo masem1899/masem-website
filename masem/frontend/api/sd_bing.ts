@@ -3,8 +3,8 @@ export const config = {
 }
 
 
-export default async function(req, res) {
-    console.log("onSchedule", req);
+export default async function() {
+    console.log("onSchedule");
 
     try {
         const bingRes = await fetch('https://api.indexnow.org/IndexNow', {
