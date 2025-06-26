@@ -7,7 +7,7 @@ import { pool, pgPlaceholders } from './v1/_neon.js';
 
 async function botlog(userAgent, targetUrl) {
   const query = {
-    text: "INSERT INTO botlogs (project, userAgent, targetUrl) VALUES ($1, $2, $3)",
+    text: "INSERT INTO botlogs (project, user_agent, target_url) VALUES ($1, $2, $3)",
     values: ["masem.at",userAgent,targetUrl]
   };
 
