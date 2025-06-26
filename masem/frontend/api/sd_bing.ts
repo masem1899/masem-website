@@ -20,11 +20,13 @@ export default async function() {
                 ]
             }),
         });
+
+        console.log("Bing response status:", bingRes.status);
+        const responseText = await bingRes.text();
+        console.log("Bing response:", responseText)
     } catch(err) {
         console.error('error calling bing newIndex:', err);
     }
-
-    return res.status(200).json({ ok:true });
 }
 
 /*
