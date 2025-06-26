@@ -13,6 +13,7 @@ export default async function() {
             body: JSON.stringify({
                 host:"https://masem.at",
                 key:'ea8b3151b6094ffe88a2012bce6e9b28',
+                keyLocation: "https://www.example.org/ea8b3151b6094ffe88a2012bce6e9b28.txt",
                 urlList: [
                     'https://masem.at',
                     'https://masem.at/projects/pyseoa',
