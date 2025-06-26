@@ -19,9 +19,11 @@ export default async function handler(request, response) {
 
   const { searchParams } = new URL(request.url, `http://${request.headers.host}`);
   const rawPath = searchParams.get('path') || '/';
+  console.log("requested:", rawPath);
   const safePath = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
 
   const targetUrl = `https://service.prerender.io/https://masem.at${safePath}`;
+  console.log("request to prerender:", targetUrl);
   const headers = {
     'X-Prerender-Token': 'Nw2V48rcSh7oubSszKPk',
     'User-Agent': userAgent
