@@ -7,7 +7,7 @@ export default function SocialLinks({ ...props }) {
     const [showText, setShowText] = useState(false);
 //
     return (
-            <div {...props} onMouseEnter={()=>setShowText(true)} onMouseLeave={() => setShowText(false)}>
+            <div {...props} className="h-24" onMouseEnter={()=>setShowText(true)} onMouseLeave={() => setShowText(false)}>
                 {/* github */}
                 <a href="https://github.com/masem1899/" title="masem GitHub profile" aria-label="masem GitHub profile" rel="noopener noreferrer" target="_blank">
                     <i className="fab fa-github"></i> {showText && <span className="ml-1">GitHub</span>} 
