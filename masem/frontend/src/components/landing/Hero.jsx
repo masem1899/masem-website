@@ -31,9 +31,9 @@ export default function Hero() {
                             News
                         </Button>
                         {/* <a onClick={() => scrollTo('newsletter')} href="#" className="underline">Newsletter</a> */}
-                        {/* <Button variant="outline" onClick={() => scrollTo('newsletter')}>
+                        <ALink label="Newsletter" classNme="underline" href="https://masem.hashnode.dev/newsletter" target="_blank">
                             Newsletter
-                        </Button> */}
+                        </ALink>
                     </div>
                 </div>
             </section>
