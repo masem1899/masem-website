@@ -4,8 +4,8 @@ export default function LegalPage() {
   const [lang, setLang] = useState("en");
 
   return (
-    <div className="p-8">
-      <div className="mb-4">
+    <div className="max-w-4xl mx-auto px-4 py-10 text-sm leading-relaxed">
+      <div className="flex justify-center space-x-4 mb-6">
         <button
           onClick={() => setLang("de")}
           className={`mr-2 px-4 py-2 ${lang === "de" ? "bg-black text-white" : "bg-gray-200"}`}

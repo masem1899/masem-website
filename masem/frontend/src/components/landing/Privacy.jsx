@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           <p>Ich, Mario Semper, nehme den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten werden im Rahmen der gesetzlichen Vorschriften (DSGVO, TKG 2003) vertraulich behandelt.</p>
 
           <h2 className="text-lg font-semibold mt-6">Verantwortlicher</h2>
-          <p>Mario Semper<br />kontakt@masem.at<br />https://masem.at</p>
+          <p>Mario Semper<br />contakt@masem.at<br />https://masem.at</p>
 
           <h2 className="text-lg font-semibold mt-6">Zugriffsdaten</h2>
           <p>Beim Besuch dieser Website werden folgende Daten automatisch erfasst:</p>
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
           <p>I, Mario Semper, take your privacy seriously. Your data is processed in accordance with legal requirements (GDPR).</p>
 
           <h2 className="text-lg font-semibold mt-6">Controller</h2>
-          <p>Mario Semper<br />kontakt@masem.at<br />https://masem.at</p>
+          <p>Mario Semper<br />contakt@masem.at<br />https://masem.at</p>
 
           <h2 className="text-lg font-semibold mt-6">Access Data</h2>
           <p>When visiting this website, the following data may be automatically logged:</p>
