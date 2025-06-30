@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function LegalPage() {
-  const [lang, setLang] = useState("de");
+  const [lang, setLang] = useState("en");
 
   return (
     <div className="p-8">

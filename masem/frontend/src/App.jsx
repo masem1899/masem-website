@@ -7,6 +7,7 @@ import BlogDetails from "./pages/BlogDetails"
 import MainLayout from "./components/layout/MainLayout"
 import { AuthProvider } from "./context/AuthContext"
 import LegalPage from "./components/landing/Legal"
+import PrivacyPolicy from "./components/landing/Privacy"
 
 
 
@@ -22,6 +23,8 @@ function App() {
             <Route path="/projects/:slug" element={ <ProjectDetails /> } />
             <Route path="/blog/:slug" element={ <BlogDetails /> } />
             <Route path="/legal" element={ <LegalPage /> } />
+            <Route path="/privacy" element={ <PrivacyPolicy /> } />
+            <Route path="/datenschutz" element={ <PrivacyPolicy /> } />
             <Route path="*" element={<Landing />} />
           </Route>
           
