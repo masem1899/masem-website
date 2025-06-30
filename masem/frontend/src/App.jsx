@@ -6,6 +6,7 @@ import ProjectDetails from "./pages/ProjectDetails"
 import BlogDetails from "./pages/BlogDetails"
 import MainLayout from "./components/layout/MainLayout"
 import { AuthProvider } from "./context/AuthContext"
+import LegalPage from "./components/landing/Legal"
 
 
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={ <Landing /> } />
             <Route path="/projects/:slug" element={ <ProjectDetails /> } />
             <Route path="/blog/:slug" element={ <BlogDetails /> } />
+            <Route path="/legal" element={ <LegalPage /> } />
             <Route path="*" element={<Landing />} />
           </Route>
           
