@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import HiddenForIPList from "../own/HiddenForIPList";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
-
+import Clarity from "@microsoft/clarity";
 
 
 
@@ -16,6 +16,7 @@ export default function MainLayout() {
 
     // for prerender.io
     useEffect(() => {
+        Clarity.init('s5ym5tuj79');
         if (typeof window !== 'undefined') {
             window.prerenderReady = false;
         }
