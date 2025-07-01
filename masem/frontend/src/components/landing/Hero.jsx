@@ -1,12 +1,15 @@
 import Button from "@/components/own/Button";
 import ALink from "../own/ALink";
+import Clarity from "@microsoft/clarity";
 
 
 
 export default function Hero() {
     const scrollTo = (id) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth'});
+        Clarity.event(`hero_${id}`);
     };
+
 
     return (
         <>
