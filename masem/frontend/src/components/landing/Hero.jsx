@@ -16,8 +16,8 @@ export default function Hero() {
             {/* Hero section */}
             <section className="min-h-screen bg-muted text-foreground flex items-center justify-center px-4">
                 <div className="max-w-2xl text-center space-y-6">
-                    <div className="flex justify-center">
-                        <img src='/assets/masem-logo.png' alt="Hero" className="w-64 h-64 mb-4 mx-auto transition-transform duration-1000 hover:rotate-[720deg] hover:scale-200" />
+                    <div className="flex justify-center my-10">
+                        <img src='/assets/masem-banner-new.PNG' alt="Hero" className="w-1387 h-383 mb-4 mx-auto" />
                     </div>
                     <h1 className="text-5xl font-extrabold">
                         Welcome to masem
