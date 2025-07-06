@@ -31,8 +31,11 @@ export default function AboutMe() {
         <section id="about" className="py-20 text-center bg-muted text-foreground">
             <h2 className="text-3xl font-bold mb-4">About me</h2>
             <p className="text-muted-foreground">
-                I'm a developer building useful tools for real people -
-                masem is a playground for ideas and future products.
+                Hi, I’m Mario Semper, a software expert and product owner substitute based in Austria. I work at UNIQA as part of ColPlat, a team focused on building internal collaboration tools using Microsoft Power Platform.
+
+Outside of work, I enjoy hiking, skiing, and spending time with my two kids (and our Maine Coon cat, Luna 🐾). I’ve worked across many areas of software development and still enjoy exploring new ideas and technologies in my spare time.
+
+Here at masem (a blend of my name and ideas), I share personal projects, tools, and the occasional experiment. It’s my creative outlet—quiet for now, but always in motion.
             </p>
             <div className="flex mt-2 justify-center">
                 <img src="assets/mario.png" alt="picture of mario" title="picture of mario" width="300"/>
