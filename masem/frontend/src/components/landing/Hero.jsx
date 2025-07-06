@@ -16,7 +16,7 @@ export default function Hero() {
             {/* Hero section */}
             <section className="min-h-screen bg-muted text-foreground flex items-center justify-center px-4">
                 <div className="max-w-2xl text-center space-y-6">
-                    <div className="flex justify-center my-10">
+                    <div className="flex justify-center mb-10">
                         <img src='/assets/masem-banner-new.PNG' alt="Hero" className="w-1387 h-383 mb-4 mx-auto" />
                     </div>
                     <h1 className="text-5xl font-extrabold">
@@ -26,7 +26,18 @@ export default function Hero() {
                         Hobby projects, experiments, and tools - and maybe more in the future.
                     </p>
                     <div className="flex justify-center gap-4 items-center">
-                        <Button onClick={() => scrollTo('projects')}>
+                        <div className="flex flex-col space-y-5 rounded border-masem">
+                            <h3>Projects</h3>
+                            <p>Take a look at the projects we are working on.</p>
+                        </div>
+                        <div className="flex flex-col space-y-5 rounded border-masem">
+                            <h3>News</h3>
+                        </div>
+                        <div className="flex flex-col space-y-5 rounded border-masem">
+                            <h3>Newsletter</h3>
+                        </div>
+                        
+                        {/* <Button onClick={() => scrollTo('projects')}>
                             Projects
                         </Button>
                         <Button variant="outline" onClick={() => scrollTo('blog-posts')}>
@@ -35,7 +46,7 @@ export default function Hero() {
                         {/* <a onClick={() => scrollTo('newsletter')} href="#" className="underline">Newsletter</a> */}
                         <ALink label="Newsletter" classNme="underline" href="https://masem.hashnode.dev/newsletter" target="_blank">
                             Newsletter
-                        </ALink>
+                        </ALink> */}
                     </div>
                 </div>
             </section>
