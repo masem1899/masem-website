@@ -14,9 +14,9 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			masem: '#76bc68', //'#10B981',
-  			masemDark: '#87a77e',
-  			masemLight: '#bcdeb2',
+  			masem: '#a2cecd',  //'#76bc68', '#10B981', 
+  			masemDark: '#617c7b',  //'#87a77e',
+  			masemLight: '#b5d8d7', // '#bcdeb2',
   			accent: {
   				DEFAULT: 'hsl(var(--accent))',
   				foreground: 'hsl(var(--accent-foreground))'
