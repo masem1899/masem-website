@@ -12,7 +12,7 @@ export default function Header() {
         <div className="flex justify-between bg-masem text-foreground pt-1 px-5 h-24 items-center">
             <ALink href="/" label="home" className="underline">Home</ALink>
             <ToggleDarkMode/>
-            <SocialLinks className="flex space-x-3" />
+            <SocialLinks />
         </div>
     )
 }
