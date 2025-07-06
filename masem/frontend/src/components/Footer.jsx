@@ -6,7 +6,7 @@ import Clarity from "@microsoft/clarity";
 
 export default function Footer() {
     return (
-        <footer className="text-muted-foreground bg-background">
+        <footer className="text-muted-foreground bg-masem">
         <div className="py-10 text-center text-sm flex flex-col items-center space-y-2">
             <div>
                 <a href="https://www.buymeacoffee.com/masem" onClick={() => Clarity.event('bymeacoffee')} target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '60px !important', width: '217px !important'}} /></a>
