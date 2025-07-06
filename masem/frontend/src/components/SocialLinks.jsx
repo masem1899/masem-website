@@ -13,7 +13,7 @@ export default function SocialLinks({ ...props }) {
     return (
             <div {...props} className="h-24" onMouseEnter={()=>setShowText(true)} onMouseLeave={() => setShowText(false)}>
                 {/* github */}
-                <a href="https://github.com/masem1899/" title="masem GitHub profile" aria-label="masem GitHub profile" rel="noopener noreferrer" target="_blank" onClick={() => socialClick('Github')}>
+                <a href="https://github.com/masem-at/" title="masem GitHub profile" aria-label="masem GitHub profile" rel="noopener noreferrer" target="_blank" onClick={() => socialClick('Github')}>
                     <i className="fab fa-github"></i> {showText && <span className="ml-1">GitHub</span>} 
                 </a>
                 {/* linkedIn */}
@@ -57,7 +57,7 @@ export default function SocialLinks({ ...props }) {
                     <i className="fa-brands fa-hashnode"></i>{showText && <span className="ml-1">Hashnode</span>} 
                 </a>
                 {/* dev.to */}
-                | <a href="https://dev.to/huetteldorf" title="dev.to profile" aria-label="dev.to profile" rel="noopener norefferer" target="_blank" onClick={() => socialClick('DevTo')}>
+                | <a href="https://dev.to/masem" title="dev.to profile" aria-label="dev.to profile" rel="noopener norefferer" target="_blank" onClick={() => socialClick('DevTo')}>
                     <i className="fa-solid fa-link"></i>{showText && <span className="ml-1">Dev.to</span>} 
                 </a>
                 {/* email */}
