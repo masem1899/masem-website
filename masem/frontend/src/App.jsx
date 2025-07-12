@@ -8,6 +8,7 @@ import MainLayout from "./components/layout/MainLayout"
 import { AuthProvider } from "./context/AuthContext"
 import LegalPage from "./components/landing/Legal"
 import PrivacyPolicy from "./components/landing/Privacy"
+import ProjectList from "./pages/ProjectList"
 
 
 
@@ -20,6 +21,7 @@ function App() {
           {/* Shared layout for 'normal' pages. */}
           <Route element={<MainLayout />}>
             <Route path="/" element={ <Landing /> } />
+            <Route path="/projects" element={ <ProjectList /> } />
             <Route path="/projects/:slug" element={ <ProjectDetails /> } />
             <Route path="/blog/:slug" element={ <BlogDetails /> } />
             <Route path="/legal" element={ <LegalPage /> } />
