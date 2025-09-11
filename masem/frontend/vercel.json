@@ -13,7 +13,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/maintenance" },
     {
       "source": "/(.*)",
       "has": [
