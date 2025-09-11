@@ -1,19 +1,25 @@
 {
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "www.masem.at"
         }
       ],
-      "destination": "https://masem.at/:1",
+      "destination": "https://masem.at/:path*",
       "statusCode": 308
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/maintenance" },
     {
       "source": "/(.*)",
       "has": [
