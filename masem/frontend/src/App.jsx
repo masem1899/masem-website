@@ -21,11 +21,11 @@ function App() {
             <Route path="/" element={ <Landing /> } />
             <Route path="/projects/:slug" element={ <ProjectDetails /> } />
             <Route path="/blog/:slug" element={ <BlogDetails /> } />
-            <Route path="*" element={<Landing />} />
           </Route>
           
             <Route path="/maintenance" element={<Maintenance />} />
             <Route path="/admin" element={ <Admin /> } />
+            <Route path="*" element={<Landing />} />
         </Routes>
       </Router>
     </AuthProvider>
